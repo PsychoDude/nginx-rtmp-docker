@@ -11,11 +11,11 @@ RUN git clone https://github.com/arut/nginx-rtmp-module.git /tmp/nginx-rtmp-modu
 RUN wget http://nginx.org/download/nginx-$(nginx -v 2>&1 | grep -o '[0-9.]*').tar.gz -O /tmp/nginx.tar.gz \
     && tar -zxvf /tmp/nginx.tar.gz -C /tmp
 
-# Build Nginx with the RTMP module
+# Build the RTMP module
 RUN cd /tmp/nginx-* \
-    && ./configure --with-http_ssl_module --add-module=/tmp/nginx-rtmp-module \
-    && make \
-    && make install
+    && ./configure --with-compat --add-dynamic-module=/tmp/nginx-rtmp-module \
+    && make modules \
+    && cp objs/ngx_rtmp_module.so /etc/nginx/modules
 
 # Remove unnecessary files
 RUN rm -rf /tmp/nginx-* /tmp/nginx-rtmp-module
@@ -26,5 +26,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Expose ports
 EXPOSE 80 1935
 
-# Start Nginx service
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
