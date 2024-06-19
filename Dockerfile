@@ -20,6 +20,9 @@ RUN cd /tmp/nginx-* \
 # Remove unnecessary files
 RUN rm -rf /tmp/nginx-* /tmp/nginx-rtmp-module
 
+# Create log directory
+RUN mkdir -p /var/log/nginx /etc/nginx/logs
+
 # Copy Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
