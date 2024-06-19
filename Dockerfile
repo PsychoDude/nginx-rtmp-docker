@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Install necessary packages for building the module
-RUN apk add --no-cache git build-base pcre-dev zlib-dev openssl-dev curl
+RUN apk add --no-cache git build-base pcre-dev zlib-dev openssl-dev
 
 # Clone the nginx-rtmp-module repository
 RUN git clone https://github.com/arut/nginx-rtmp-module.git /tmp/nginx-rtmp-module
@@ -20,8 +20,8 @@ RUN cd /tmp/nginx-* \
 # Remove unnecessary files
 RUN rm -rf /tmp/nginx-* /tmp/nginx-rtmp-module
 
-# Create log directory
-RUN mkdir -p /var/log/nginx /etc/nginx/logs
+# Create necessary directories
+RUN mkdir -p /var/log/nginx /var/www/hls /etc/nginx/logs
 
 # Copy Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
