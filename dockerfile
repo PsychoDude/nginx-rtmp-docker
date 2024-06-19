@@ -26,5 +26,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Expose ports
 EXPOSE 80 1935
 
-# Start Nginx
+# Start Nginx service
 CMD ["nginx", "-g", "daemon off;"]
