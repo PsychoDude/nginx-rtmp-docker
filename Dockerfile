@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Install necessary packages for building the module
-RUN apk add --no-cache git build-base pcre-dev zlib-dev openssl-dev
+RUN apk add --no-cache git build-base pcre-dev zlib-dev openssl-dev curl
 
 # Clone the nginx-rtmp-module repository
 RUN git clone https://github.com/arut/nginx-rtmp-module.git /tmp/nginx-rtmp-module
