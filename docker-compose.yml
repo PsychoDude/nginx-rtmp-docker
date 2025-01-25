@@ -15,6 +15,7 @@ services:
             - caddy_0.handle_path.0_reverse_proxy={{upstreams 8888}}
             - caddy_0.handle_path=/*
             - caddy_0.header=-Server
+            - caddy_ingress_network=coolify
         restart: unless-stopped
         volumes:
             # - ./nginx.conf:/etc/nginx/nginx.conf
