@@ -4,7 +4,7 @@ services:
         image: nginx-rtmp-docker
         container_name: nginx-rtmp-docker
         build:
-            context: ./nginx-rtmp-docker
+            context: .
             dockerfile: Dockerfile
         environment:
             - SERVICE_FQDN_NGINX_RTMP_DOCKER
