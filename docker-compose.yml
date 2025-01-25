@@ -6,8 +6,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        environment:
-            - SERVICE_FQDN_NGINX_RTMP_DOCKER
         ports:
             - '8888'
             - '172.22.22.108:18650:1935'
