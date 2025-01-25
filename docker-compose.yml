@@ -13,7 +13,7 @@ services:
             - '172.22.22.108:18650:1935'
         labels:
             - caddy_0.encode=zstd gzip
-            - caddy_0=${SERVICE_FQDN_NGINX_RTMP_DOCKER_8888}
+            - caddy_0=${SERVICE_FQDN_NGINX_RTMP_DOCKER}
             - caddy_0.handle_path.0_reverse_proxy={{upstreams 8888}}
             - caddy_0.handle_path=/*
             - caddy_0.header=-Server
