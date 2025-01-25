@@ -1,0 +1,16 @@
+version: '3'
+services:
+    nginx-rtmp-docker:
+        image: nginx-rtmp-docker
+        container_name: nginx-rtmp-docker
+        build:
+            context: ./nginx-rtmp-docker
+            dockerfile: Dockerfile
+        ports:
+            - '80:80'
+            - '1935:1935'
+        volumes:
+            - /home/psycho/repos/nginx-rtmp-docker/nginx.conf:/etc/nginx/nginx.conf
+            - /var/www/hls:/var/www/hls
+volumes:
+    nginxcache:
