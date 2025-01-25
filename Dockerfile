@@ -25,6 +25,7 @@ RUN mkdir -p /var/log/nginx /var/www/hls /etc/nginx/logs
 
 # Copy Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
+RUN chmod 644 /etc/nginx/nginx.conf && chown -R nobody:nobody /var/log/nginx /var/www/hls
 
 # Expose ports
 EXPOSE 8888 1935
