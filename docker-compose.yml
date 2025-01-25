@@ -7,10 +7,9 @@ services:
             context: .
             dockerfile: Dockerfile
         environment:
-            - SERVICE_FQDN_NGINX_RTMP_DOCKER=${SERVICE_FQDN_NGINX_RTMP_DOCKER}
-            - _APP_URL=$SERVICE_FQDN_NGINX_RTMP_DOCKER_8888
             - SERVICE_FQDN_NGINX_RTMP_DOCKER_8888
         ports:
+            - '8888'
             - '172.22.22.108:18650:1935'
         restart: unless-stopped
         volumes:
