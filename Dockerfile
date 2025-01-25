@@ -27,7 +27,7 @@ RUN mkdir -p /var/log/nginx /var/www/hls /etc/nginx/logs
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports
-EXPOSE 80 1935
+EXPOSE 8888 1935
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
